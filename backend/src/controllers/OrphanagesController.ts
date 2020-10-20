@@ -24,7 +24,7 @@ export default {
             relations: ['images']
         });
 
-        return response.json(orphanageView.render)
+        return response.json(orphanageView.render(orphanages))
     },
     async create(request: Request, response: Response) {
         const {
@@ -51,7 +51,7 @@ export default {
             about,
             instructions,
             opening_hours,
-            open_on_weekends,
+            open_on_weekends: open_on_weekends === 'true',
             images
         }
 
